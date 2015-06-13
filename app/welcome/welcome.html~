@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>AngularJS & Firebase Web App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    
+  </head>
+
+  <body ng-controller="WelcomeCtrl">
+
+   <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#/welcome">Home</a>
+          <a class="blog-nav-item " href="#/addPost">Add Post</a>
+          
+        </nav>
+      </div>
+    </div>
+   <div class="container">
+      <div class="page-header">
+        <h1>AngularJS & Firebase App</h1>
+      </div>
+      <p class="lead">Welcome home <b>{{username}}</b> !!</p>
+      <p>{{pp}}</p>
+     <div class="list-group" ng-repeat="article in articles">
+    <a href="#" onclick="return false;" class="list-group-item active">
+        <h4 class="list-group-item-heading">{{article.title}}</h4>
+        <p class="list-group-item-text">{{article.post}}</p>
+ 
+        <span class="pull-right">
+      <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">EDIT</button>
+      <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal" >DELETE</button>
+    </span>
+    </a>
+</div>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="editModalLabel">Update Post</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Title:</label>
+            <input type="text" class="form-control" ng-model="postToUpdate.title" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Post:</label>
+            <textarea class="form-control" id="message-text" ng-model="postToUpdate.post"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="update()">Publish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="text-align:center;">
+        <h4 class="modal-title" style="color:red;" id="deleteModalLabel">You are going to Delete this post forever !!</h4>
+      </div>
+     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="update()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div> 
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"></p>
+      </div>
+    </footer>
+
+</body></html>

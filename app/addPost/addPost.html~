@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+   
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+
+    <script type="text/javascript" src="spin.min.js"></script>
+		 <script type="text/javascript" src="ladda.min.js"></script>
+		 <link rel="stylesheet" type="text/css" href="ladda-themeless.min.css">
+    
+  </head>
+
+  <body ng-controller="AddPostCtrl">
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item " href="#/welcome">Home</a>
+          <a class="blog-nav-item active" href="#/addPost">Add Post</a>
+          
+        </nav>
+      </div>
+    </div>
+
+    <div class="container" >
+
+      <form class="form-horizontal" ng-submit="AddPost()">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create Post</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtTitle">Title</label>  
+  <div class="col-md-4">
+  <input id="txtTitle" name="txtTitle" ng-model="article.title" type="text" placeholder="placeholder" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPost">Post</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="txtPost" ng-model="article.post" name="txtPost" ></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+   
+
+
+<button ladda-loading="login.loading" data-style="expand-right" ng-disabled="!article.title || !article.post" name="singlebutton" class="btn  segoe-ui-light ladda-button btn-primary btn-block" type="submit"><span class="ladda-label">Publish</span></button>
+
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+    </div><!-- /.container -->
+
+    <div class="blog-footer">
+       <p>AngularJS & Firebase Blog App</p>
+    
+    </div>
+
+
+   
+  </body>
+</html>
+

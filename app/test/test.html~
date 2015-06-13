@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>AngularJS & Firebase Web App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    
+  </head>
+
+  <body ng-controller="TestCtrl">
+    
+    <div class="container">
+      <div class="jumbotron" style="padding-bottom:0px;">
+        <h2>AngularJS & Firebase App!</h2>
+      </div>
+     
+        
+
+	<button data-ui-ladda="login.loading" type="submit" ng-click="test()" id="btnSignIn" class="btn btn-primary segoe-ui-light ladda-button" data-style="expand-right">
+                    <span class="ladda-label">Sign In</span>
+                </button>
+
+      
+
+    </div>
+
+  
+
+</body></html>

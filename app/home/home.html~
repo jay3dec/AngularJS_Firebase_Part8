@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>AngularJS & Firebase Web App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+   
+    <link href="justified-nav.css" rel="stylesheet">
+     <script type="text/javascript" src="spin.min.js"></script>
+		 <script type="text/javascript" src="ladda.js"></script>
+		 <link rel="stylesheet" type="text/css" href="ladda-themeless.min.css">
+    
+  </head>
+
+  <body ng-controller="HomeCtrl">
+    
+    <div class="container">
+      <div class="jumbotron" style="padding-bottom:0px;">
+        <h2>AngularJS & Firebase App!</h2>
+      </div>
+      <form class="form-signin" name="signinForm" role="form">
+        <div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" ng-model="user.email">
+        <p class="help-block" ng-show="signinForm.email.$invalid">Enter a valid email.</p>
+    </div> 
+    <div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="3">
+        <p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 8 characters.</p>
+    </div>  
+        <label class="checkbox">
+          <a href="#/register"> Sign Up</a>
+        </label>
+        <button ladda-loading="login.loading" data-style="expand-right" ng-disabled="!user.email || !user.password" type="button" ng-click="SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
+
+
+	
+
+      </form>
+
+    </div>
+
+  
+
+</body></html>
